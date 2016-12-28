@@ -7,7 +7,7 @@ OS="linux"
 ARCH="amd64"
 
 # GO configuration
-GO_VERSION="1.5.3"
+GO_VERSION="1.7"
 GOPATH="$HOME/gocode"
 GOHAN_PATH=$GOPATH/src/github.com/cloudwan
 
@@ -51,20 +51,6 @@ echo "source ${HOME}/.gorc" >> ${HOME}/.bashrc
 mkdir -p $GOPATH
 source ${HOME}/.gorc
 
-echo "==== Installing gohan dependencies"
-
-go get github.com/tools/godep
-go get github.com/golang/lint/golint
-go get github.com/coreos/etcd
-go get github.com/axw/gocov/gocov
-go get golang.org/x/tools/cmd/vet
-go get github.com/stretchr/testify
-go get github.com/jteeuwen/go-bindata/go-bindata
-go get github.com/mattn/go-isatty
-go get golang.org/x/sys/unix
-go get golang.org/x/tools/cmd/goimports
-
-
 echo "==== Installing gohan"
 
 touch $HOME/.ssh/config
@@ -76,6 +62,7 @@ cd $GOHAN_PATH
 git clone git@github.com:cloudwan/gohan.git
 
 cd gohan
-make all install
+make deps
+make install
 
 echo "====Installing gohan Done!"

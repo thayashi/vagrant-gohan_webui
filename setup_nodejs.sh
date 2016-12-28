@@ -2,11 +2,11 @@
 
 set -e
 
-NODE_VERSION="5.2.0"
+NODE_VERSION="6.9.0"
 
 echo "==== Download NVM"
 
-curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.0/install.sh | bash
+curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.32.1/install.sh | bash
 
 echo "==== Setup NVM"
 
